@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#4b1025">
+<title>Raksha Bandhan — A Gift From Your Brother</title>
+<style>
+:root{--red:#6f1830;--purple:#35184f;--gold:#f5c76a;--cream:#fff7e9;--pink:#e8899e}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;background:#210f24;color:var(--cream);overflow-x:hidden}
+body{background:radial-gradient(circle at 50% 10%,#61204b 0,#321535 38%,#160b1b 100%)}
+button,input,textarea{font:inherit}button{cursor:pointer}
+#app{min-height:100vh;position:relative}.screen{min-height:100vh;display:none;place-items:center;padding:28px 18px;position:relative;overflow:hidden}.screen.active{display:grid}
+.card{width:min(720px,100%);text-align:center;position:relative;z-index:3}.eyebrow{letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-size:.78rem}
+h1{font-size:clamp(2.2rem,10vw,5rem);line-height:1.02;margin:12px 0}h2{font-size:clamp(1.7rem,7vw,3rem);margin:10px 0}p{line-height:1.65;color:#f7dfca}
+.glow{filter:drop-shadow(0 0 18px rgba(245,199,106,.45))}
+.btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+.btn{border:1px solid rgba(245,199,106,.55);border-radius:999px;padding:13px 23px;background:rgba(255,255,255,.08);color:white;min-width:130px;transition:transform .25s,background .25s}
+.btn.primary{background:linear-gradient(135deg,#f5c76a,#d98a3d);color:#351326;border:0;font-weight:bold}.btn:hover{transform:translateY(-2px)}
+.gift{width:min(210px,55vw);aspect-ratio:1;margin:22px auto;position:relative;animation:float 3s ease-in-out infinite}.gift .box{position:absolute;left:10%;right:10%;bottom:10%;height:55%;border-radius:12px;background:linear-gradient(135deg,#b52d55,#6f1830);box-shadow:0 18px 40px #0007}.gift .lid{position:absolute;left:5%;right:5%;top:25%;height:24%;border-radius:10px;background:linear-gradient(135deg,#e95d7d,#8e2043);z-index:2}.gift .ribbon{position:absolute;left:43%;width:14%;top:25%;bottom:10%;background:#f5c76a;z-index:3}.gift .bow{position:absolute;top:10%;left:35%;width:30%;height:25%;border:8px solid #f5c76a;border-radius:50%;z-index:4}
+@keyframes float{50%{transform:translateY(-10px)}}.petal{position:absolute;top:-30px;width:12px;height:18px;background:#ef9aaa;border-radius:70% 30% 70% 30%;opacity:.75;animation:fall linear forwards;pointer-events:none;z-index:2}@keyframes fall{to{transform:translate3d(var(--x),110vh,0) rotate(540deg);opacity:.05}}
+#noBtn{position:relative}.memory-wrap{width:min(620px,100%);overflow:hidden}.memory-card{background:#fff7e9;color:#4b1730;border-radius:20px;padding:12px;box-shadow:0 20px 55px #0008;transform:rotate(-1deg);transition:transform .35s}.memory-card.flip{transform:rotateY(180deg)}.memory-inner{min-height:350px;display:grid;place-items:center;border:1px solid #d9b66a;border-radius:14px;padding:18px}.memory-inner img{max-height:310px;max-width:100%;object-fit:cover;border-radius:10px}.memory-back{display:none}.memory-card.showback .memory-front{display:none}.memory-card.showback .memory-back{display:block}
+textarea{width:100%;min-height:180px;border-radius:18px;border:1px solid #d7b064;background:#fffaf1;color:#321326;padding:16px;outline:none;resize:vertical}textarea:focus{box-shadow:0 0 0 3px #f5c76a55}.counter{font-size:.85rem;color:#e8c89b;text-align:right;margin-top:6px}
+.wrist{margin:22px auto;width:min(520px,94vw);height:270px;position:relative;background:linear-gradient(145deg,#d99a72,#b96f55);border-radius:45% 45% 30% 30%;box-shadow:inset -20px -25px 35px #7c3e3c55}.rakhi{position:absolute;left:50%;top:35%;transform:translate(-50%,-50%);font-size:55px;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}.wrist.tied .rakhi{transform:translate(-50%,80%) rotate(8deg)}
+.final-sketch{width:min(520px,92vw);border-radius:20px;padding:10px;background:#fff7e9;box-shadow:0 25px 80px #0008}.final-sketch img{display:block;width:100%;border-radius:12px;opacity:0;transform:scale(.96);filter:blur(8px);animation:reveal 5s ease forwards}@keyframes reveal{to{opacity:1;transform:scale(1);filter:blur(0)}}.heart{font-size:2rem;animation:pulse 1.5s infinite}@keyframes pulse{50%{transform:scale(1.18)}}
+.letter{background:linear-gradient(135deg,#fff7e9,#f4dfc1);color:#4b1730;border-radius:18px;padding:25px;text-align:left;box-shadow:0 18px 50px #0007}.letter p{color:#4b1730}
+.music{position:fixed;right:12px;bottom:12px;z-index:20;border:1px solid #f5c76a88;background:#2d152d;color:#fff;border-radius:999px;padding:9px 13px}
+.small{font-size:.9rem;color:#e7c9aa}.hide{display:none!important}
+@media(max-width:520px){.screen{padding:24px 14px}.btn{min-width:145px}.memory-inner{min-height:300px}.wrist{height:220px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="app">
+
+<section class="screen active" id="welcome">
+<div class="card">
+<div class="eyebrow">Raksha Bandhan</div>
+<h1>A Special Surprise<br>For My Sisters ❤️</h1>
+<p>Open this little gift from your brother...</p>
+<div class="gift glow" aria-hidden="true"><div class="bow"></div><div class="lid"></div><div class="ribbon"></div><div class="box"></div></div>
+<p><strong>How much do you like your brother? 😏</strong></p>
+<div class="btns"><button class="btn primary" id="yesBtn">100% ❤️</button><button class="btn" id="noBtn">0% 😜</button></div>
+<p id="noMsg" class="small"></p>
+</div></section>
+
+<section class="screen" id="question">
+<div class="card">
+<div class="eyebrow">A little question</div>
+<h2>What is your favourite thing about your brother? ❤️</h2>
+<p>Write whatever you feel — up to 200 words.</p>
+<textarea id="answer" maxlength="1200" placeholder="Type your answer here..."></textarea>
+<div class="counter"><span id="wordCount">0</span> / 200 words</div>
+<div class="btns"><button class="btn primary" id="answerBtn">Continue ✨</button></div>
+</div></section>
+
+<section class="screen" id="memories">
+<div class="card">
+<div class="eyebrow">Our little memories</div>
+<h2>Some memories with you... ❤️</h2>
+<div class="memory-wrap"><div class="memory-card" id="memoryCard"><div class="memory-inner memory-front"><div><div class="heart">📸</div><h3 id="memoryTitle">A memory</h3><p id="memoryCaption">Replace the sample photo and text in Admin.</p><img id="memoryImg" alt="Memory photo"></div></div><div class="memory-inner memory-back"><div><div class="heart">❤️</div><h3>One of those days...</h3><p id="memoryBack">I'll always remember this moment.</p></div></div></div></div>
+<div class="btns"><button class="btn" id="flipBtn">Flip card</button><button class="btn primary" id="nextMemory">Next memory →</button></div>
+<p class="small" id="memoryIndex"></p>
+</div></section>
+
+<section class="screen" id="rakhi">
+<div class="card">
+<div class="eyebrow">A little magic</div>
+<h2>Now, let’s tie the Rakhi 🧵</h2>
+<p>Tap the Rakhi and watch it move toward the wrist.</p>
+<div class="wrist" id="wrist"><div class="rakhi" id="rakhiPiece">🧵🌸</div></div>
+<div class="btns"><button class="btn primary" id="tieBtn">Tie the Rakhi ❤️</button></div>
+</div></section>
+
+<section class="screen" id="letter">
+<div class="card">
+<div class="eyebrow">One more thing...</div>
+<h2>💌 A little letter</h2>
+<div class="letter"><p id="letterText">My dear sisters, this little website is just a small way of saying that I’m lucky to have you both. ❤️</p></div>
+<div class="btns"><button class="btn primary" id="finalBtn">One Last Surprise 👀</button></div>
+</div></section>
+
+<section class="screen" id="final">
+<div class="card">
+<div class="eyebrow">The final surprise</div>
+<h2>Some bonds are tied with a thread...</h2>
+<div class="final-sketch"><img id="sketchImg" alt="Three-person family sketch"></div>
+<p id="finalText">...but ours is tied with 18 years of memories. ❤️<br><br>Happy Raksha Bandhan, my sisters. 🪷<br><br><strong>Love you both, always. ❤️</strong></p>
+<div class="btns"><button class="btn" id="restartBtn">Replay surprise ↻</button></div>
+</div>
+</section>
+</div>
+<button class="music hide" id="musicBtn">🎵 Play special surprise</button>
+<audio id="audio" preload="none"></audio>
+
+<script>
+const CONFIG={
+ sisterNames:["Sister 1","Sister 2"],
+ memories:[
+  {title:"A beautiful memory",caption:"Replace this sample with one of your favourite memories.",back:"One of those moments that will always stay with us.",image:"assets/images/memory1.jpg"},
+  {title:"Another memory",caption:"Add your own short caption here.",back:"The little moments became the biggest memories.",image:"assets/images/memory2.jpg"}
+ ],
+ letter:"My dear sisters, this little website is just a small way of saying that I’m lucky to have you both. ❤️",
+ sketch:"assets/images/three-person-sketch.jpg",
+ song:"assets/audio/final-telugu-song.mp3"
+};
+
+const $=id=>document.getElementById(id);
+const screens=[...document.querySelectorAll(".screen")];
+function show(id){screens.forEach(s=>s.classList.toggle("active",s.id===id));window.scrollTo({top:0,behavior:"smooth"});}
+function petals(n=28){
+ for(let i=0;i<n;i++){const p=document.createElement("span");p.className="petal";p.style.left=Math.random()*100+"%";p.style.setProperty("--x",(Math.random()*220-110)+"px");p.style.animationDuration=(3+Math.random()*3)+"s";p.style.animationDelay=(Math.random()*1.2)+"s";document.body.appendChild(p);setTimeout(()=>p.remove(),7500);}
+}
+let noAttempts=0;
+const noBtn=$("noBtn"), noMsg=$("noMsg");
+function moveNo(){
+ noAttempts++;
+ const pad=12, bw=noBtn.offsetWidth, bh=noBtn.offsetHeight;
+ const maxX=Math.max(pad,window.innerWidth-bw-pad), maxY=Math.max(90,window.innerHeight-bh-90);
+ const x=pad+Math.random()*(maxX-pad), y=90+Math.random()*Math.max(1,maxY-90);
+ noBtn.style.position="fixed";noBtn.style.left=x+"px";noBtn.style.top=y+"px";noBtn.style.zIndex=30;
+ const msgs=["Nope 😜 Try again!","Nice try 😂","You really thought I’d let you choose NO?","Come on... press YES ❤️","Your brother made this just for you! 😌"];
+ noMsg.textContent=msgs[Math.min(noAttempts-1,msgs.length-1)];
+}
+noBtn.addEventListener("mouseenter",moveNo);noBtn.addEventListener("pointerdown",e=>{e.preventDefault();moveNo()});
+$("yesBtn").addEventListener("click",()=>{noBtn.style.display="none";noMsg.textContent="I knew it! 😌❤️";petals(45);setTimeout(()=>show("question"),1800)});
+
+function words(v){return v.trim()?v.trim().split(/\s+/).length:0}
+$("answer").addEventListener("input",()=>{$("wordCount").textContent=Math.min(200,words($("answer").value));});
+$("answerBtn").addEventListener("click",()=>{if(words($("answer").value)>200)return;renderMemory();show("memories")});
+
+let mi=0;
+function renderMemory(){
+ const m=CONFIG.memories[mi%CONFIG.memories.length];$("memoryTitle").textContent=m.title;$("memoryCaption").textContent=m.caption;$("memoryBack").textContent=m.back;$("memoryIndex").textContent=`Memory ${mi+1} of ${CONFIG.memories.length}`;
+ const img=$("memoryImg");img.onerror=()=>img.style.display="none";img.onload=()=>img.style.display="block";img.src=m.image;
+ $("memoryCard").classList.remove("showback");
+}
+$("flipBtn").addEventListener("click",()=>$("memoryCard").classList.toggle("showback"));
+$("nextMemory").addEventListener("click",()=>{mi++;if(mi>=CONFIG.memories.length){show("rakhi");return}renderMemory()});
+
+$("tieBtn").addEventListener("click",()=>{const w=$("wrist");w.classList.add("tied");petals(35);setTimeout(()=>show("letter"),1700)});
+$("letterText").textContent=CONFIG.letter;
+$("finalBtn").addEventListener("click",()=>{
+ $("sketchImg").src=CONFIG.sketch;
+ $("sketchImg").onerror=()=>{$("sketchImg").alt="Add your three-person sketch at "+CONFIG.sketch};
+ show("final");startAudio();petals(30);
+});
+function startAudio(){
+ const a=$("audio");a.src=CONFIG.song;
+ a.play().then(()=>{$("musicBtn").classList.remove("hide");$("musicBtn").textContent="🎵 Pause"}).catch(()=>{$("musicBtn").classList.remove("hide");$("musicBtn").textContent="🎵 Play special surprise"});
+}
+$("musicBtn").addEventListener("click",()=>{const a=$("audio");if(a.paused){a.play().then(()=>$("musicBtn").textContent="🎵 Pause")}else{a.pause();$("musicBtn").textContent="🎵 Play special surprise"}});
+$("restartBtn").addEventListener("click",()=>{location.reload()});
+renderMemory();
+</script>
+</body>
+</html>

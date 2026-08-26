@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Raksha Bandhan Admin</title>
+<style>body{margin:0;background:#1c0c1d;color:#fff7e9;font-family:Arial,sans-serif}.wrap{max-width:900px;margin:auto;padding:24px}.panel{background:#2c142c;border:1px solid #f5c76a55;border-radius:18px;padding:20px;margin:15px 0}input,textarea{width:100%;padding:12px;border-radius:10px;border:0;margin:7px 0 14px;box-sizing:border-box}button{padding:12px 18px;border:0;border-radius:999px;background:#f5c76a;color:#2c142c;font-weight:bold;cursor:pointer}.row{display:grid;grid-template-columns:1fr 1fr;gap:15px}@media(max-width:600px){.row{grid-template-columns:1fr}}</style></head>
+<body><div class="wrap"><h1>🔐 Raksha Bandhan Admin</h1><p>Local demo admin. This saves settings in this browser only. For a public production admin panel, connect secure server authentication/storage.</p>
+<div class="panel"><h2>Sister names</h2><div class="row"><div><label>Sister 1</label><input id="s1"></div><div><label>Sister 2</label><input id="s2"></div></div></div>
+<div class="panel"><h2>Final letter</h2><textarea id="letter" rows="7"></textarea></div>
+<div class="panel"><h2>Final sketch image path</h2><input id="sketch" value="assets/images/three-person-sketch.jpg"><p>Put your sketch in the indicated folder, or change the path to the file you use.</p></div>
+<div class="panel"><h2>Final Telugu song path</h2><input id="song" value="assets/audio/final-telugu-song.mp3"><p>Put the MP3 in the indicated folder, or change the path.</p></div>
+<button id="save">Save settings</button> <button onclick="location.href='index.html'">Open website</button>
+<p id="status"></p></div>
+<script>
+const defaults={s1:"Sister 1",s2:"Sister 2",letter:"My dear sisters, this little website is just a small way of saying that I’m lucky to have you both. ❤️",sketch:"assets/images/three-person-sketch.jpg",song:"assets/audio/final-telugu-song.mp3"};
+const saved=JSON.parse(localStorage.getItem("rbSettings")||"null")||defaults;
+for(const k of Object.keys(saved))if(document.getElementById(k))document.getElementById(k).value=saved[k];
+document.getElementById("save").onclick=()=>{const s={};for(const k of Object.keys(defaults))s[k]=document.getElementById(k).value;localStorage.setItem("rbSettings",JSON.stringify(s));document.getElementById("status").textContent="Saved on this browser. The main page can read these settings when connected to the same browser.";};
+</script></body></html>
